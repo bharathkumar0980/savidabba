@@ -304,6 +304,34 @@ h5 {
   flex-direction: column;
   justify-content: space-between;
 }
+.glass-select:focus {
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.glass-select option {
+  background-color: #000;
+  color: white;
+}
+
+
+.featured-card .card-img-wrap {
+  height: 350px;
+}
+
+.featured-card {
+  min-height: 550px;
+}
+
+@media (max-width: 768px) {
+  .featured-card .card-img-wrap {
+    height: 220px;
+  }
+
+  .featured-card {
+    min-height: 450px;
+  }
+}
 
 .dish-title {
   font-size: 1.4rem;
@@ -557,14 +585,4 @@ footer .text-muted {
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px;
-}
-
-.glass-select:focus {
-  border-color: var(--primary);
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.glass-select option {
-  background-color: #000;
-  color: white;
 }
