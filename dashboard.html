@@ -299,11 +299,11 @@
                             const row = `
                         <tr>
                             <td>
-                                <div class="fw-bold text-white">${order.timestamp ? order.timestamp.split(",")[1] : "Just now"}</div>
+                                <div class="fw-bold">${order.timestamp ? order.timestamp.split(",")[1] : "Just now"}</div>
                                 <small>${order.timestamp ? order.timestamp.split(",")[0] : ""}</small>
                             </td>
                             <td>
-                                <div class="fw-bold text-white">${order.customerName}</div>
+                                <div class="fw-bold">${order.customerName}</div>
                                 <div class="small" style="font-size: 0.75rem;">${order.customerEmail}</div>
                             </td>
                             <td><div class="item-list">${itemsList}</div></td>
