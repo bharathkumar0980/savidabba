@@ -273,15 +273,13 @@ h5 {
 .glass-card:hover {
   transform: translateY(-5px);
   background: rgba(40, 30, 20, 0.8);
-  /* Warm dark bg on hover */
   border-color: var(--primary);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .card-img-wrap {
   width: 100%;
-  height: 220px;
-  aspect-ratio: 4 / 3;
+  height: 300px;
   overflow: hidden;
   position: relative;
 }
@@ -298,39 +296,16 @@ h5 {
 }
 
 .card-content {
-  padding: 20px;
+  padding: 25px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-.glass-select:focus {
-  border-color: var(--primary);
-  background-color: rgba(0, 0, 0, 0.9);
+  gap: 10px;
 }
 
-.glass-select option {
-  background-color: #000;
-  color: white;
-}
-
-
-.featured-card .card-img-wrap {
-  height: 350px;
-}
-
-.featured-card {
-  min-height: 550px;
-}
-
-@media (max-width: 768px) {
-  .featured-card .card-img-wrap {
-    height: 220px;
-  }
-
-  .featured-card {
-    min-height: 450px;
-  }
+.card-content .btn-outline-custom {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .dish-title {
@@ -352,8 +327,7 @@ h5 {
 .description {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 15px;
-  flex-grow: 1;
+  margin-bottom: 20px;
 }
 
 .price-tag {
@@ -362,6 +336,55 @@ h5 {
   font-weight: 700;
   margin-bottom: 15px;
   display: block;
+}
+
+/* --- FEATURED CARD --- */
+.featured-card .card-img-wrap {
+  height: 450px;
+}
+
+.featured-card {
+  min-height: 550px;
+}
+
+@media (max-width: 768px) {
+  .featured-card .card-img-wrap {
+    height: 220px;
+  }
+
+  .featured-card {
+    min-height: 450px;
+  }
+}
+
+/* --- FORMS & INPUTS --- */
+.glass-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  appearance: none;
+  /* Orange Arrow SVG */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.glass-select:focus {
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.glass-select option {
+  background-color: #000;
+  color: white;
 }
 
 /* --- CUSTOMIZER MODAL --- */
@@ -388,18 +411,16 @@ h5 {
   font-weight: 800;
 }
 
-/* --- UPDATED FEEDBACK SECTION (THEME MATCHED) --- */
+/* --- FEEDBACK SECTION --- */
 .feedback-section {
   padding: 80px 20px;
   background: transparent;
-  /* Blends with global dark background */
   display: flex;
   justify-content: center;
 }
 
 .feedback-container {
   background: var(--glass-bg);
-  /* Dark Grey Glass */
   border: 1px solid var(--glass-border);
   padding: 40px;
   border-radius: 24px;
@@ -419,7 +440,6 @@ h5 {
 
 .feedback-container h2 span {
   color: var(--primary);
-  /* Vibrant Orange */
 }
 
 .feedback-container p {
@@ -437,7 +457,6 @@ h5 {
   font-weight: 600;
   margin-bottom: 10px;
   color: var(--accent);
-  /* Yellow for visibility */
   font-family: "Outfit", sans-serif;
   text-transform: uppercase;
   font-size: 0.85rem;
@@ -450,7 +469,6 @@ h5 {
   width: 100%;
   padding: 14px 18px;
   background: rgba(255, 255, 255, 0.05);
-  /* Subtle transparent dark */
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   font-size: 1rem;
@@ -459,7 +477,6 @@ h5 {
   transition: all 0.3s ease;
 }
 
-/* Interaction Focus - Matches Orange Glow */
 .input-group input:focus,
 .input-group select:focus,
 .input-group textarea:focus {
@@ -468,16 +485,30 @@ h5 {
   box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
 }
 
-/* Dropdown Arrow Color Adjustment */
+/* --- DROP DOWN ARROWS & SELECTS --- */
 .input-group select {
   appearance: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-white);
+  cursor: pointer;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-size: 12px;
 }
 
-/* Submit Button Gradient - Matches Cart Button */
+.input-group select option {
+  background-color: #1a1a1a;
+  color: var(--text-white);
+  padding: 10px;
+}
+
+.input-group select:focus {
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
 .submit-btn {
   width: 100%;
   padding: 16px;
@@ -496,39 +527,7 @@ h5 {
 .submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px var(--glow);
-  /* Golden Yellow Glow */
   color: #000;
-}
-
-/* --- DROPDOWN THEME MATCH --- */
-.input-group select {
-  appearance: none;
-  background-color: rgba(255, 255, 255, 0.05);
-  /* Dark background */
-  color: var(--text-white);
-  /* White text */
-  cursor: pointer;
-
-  /* Matches your Orange Arrow */
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 12px;
-}
-
-/* Styling the options inside the dropdown list */
-.input-group select option {
-  background-color: #1a1a1a;
-  /* Solid dark color for the list */
-  color: var(--text-white);
-  padding: 10px;
-}
-
-/* Focus state with Orange Border */
-.input-group select:focus {
-  border-color: var(--primary);
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
 }
 
 /* --- FOOTER --- */
@@ -563,26 +562,4 @@ footer {
 
 footer .text-muted {
   color: var(--text-muted) !important;
-}
-
-/* Dropdown Variant Style */
-.glass-select {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--glass-border);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  outline: none;
-  margin-bottom: 10px;
-  cursor: pointer;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  appearance: none;
-
-  /* UPDATED SVG for ORANGE ARROW */
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 12px;
 }
