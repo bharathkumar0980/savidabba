@@ -2,14 +2,20 @@
 
 :root {
   /* BRAND COLORS: Orange, Yellow, Black */
-  --primary: #ff6600;       /* Vibrant Orange */
-  --primary-dark: #e64d00;  /* Deep Orange for Hover */
-  --accent: #ffcc00;        /* Yellow for Highlights */
-  --glow: rgba(255, 204, 0, 0.6); /* Golden Yellow Glow */
+  --primary: #ff6600;
+  /* Vibrant Orange */
+  --primary-dark: #e64d00;
+  /* Deep Orange for Hover */
+  --accent: #ffcc00;
+  /* Yellow for Highlights */
+  --glow: rgba(255, 204, 0, 0.6);
+  /* Golden Yellow Glow */
 
   /* DARK THEME PALETTE */
-  --bg-dark: #000000;       /* Pure Black */
-  --glass-bg: rgba(20, 20, 20, 0.7); /* Dark Grey Glass */
+  --bg-dark: #000000;
+  /* Pure Black */
+  --glass-bg: rgba(20, 20, 20, 0.7);
+  /* Dark Grey Glass */
   --glass-border: rgba(255, 255, 255, 0.1);
   --text-white: #ffffff;
   --text-muted: #a7a7a7;
@@ -42,7 +48,8 @@ h5 {
 
 /* --- NAVBAR --- */
 .navbar {
-  background: rgba(0, 0, 0, 0.85); /* Darker Navbar */
+  background: rgba(0, 0, 0, 0.85);
+  /* Darker Navbar */
   backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--glass-border);
   padding: 15px 0;
@@ -95,7 +102,8 @@ h5 {
 
 .btn-primary-custom {
   background: var(--primary);
-  color: white; /* White text on Orange looks better */
+  color: white;
+  /* White text on Orange looks better */
   font-weight: 700;
   border: none;
   padding: 8px 16px;
@@ -170,8 +178,13 @@ h5 {
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .banner-item {
@@ -206,7 +219,8 @@ h5 {
 
 .banner-item:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 30px rgba(255, 102, 0, 0.3); /* Orange Shadow */
+  box-shadow: 0 0 30px rgba(255, 102, 0, 0.3);
+  /* Orange Shadow */
   transform: scale(1.02);
 }
 
@@ -232,8 +246,15 @@ h5 {
 }
 
 @media (max-width: 768px) {
-  .banner-item { width: 300px; height: 220px; }
-  .hero-section::before, .hero-section::after { width: 50px; }
+  .banner-item {
+    width: 300px;
+    height: 220px;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    width: 50px;
+  }
 }
 
 /* --- GLASS CARDS (MENU ITEMS) --- */
@@ -250,7 +271,8 @@ h5 {
 
 .glass-card:hover {
   transform: translateY(-5px);
-  background: rgba(40, 30, 20, 0.8); /* Warm dark bg on hover */
+  background: rgba(40, 30, 20, 0.8);
+  /* Warm dark bg on hover */
   border-color: var(--primary);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
@@ -334,6 +356,145 @@ h5 {
   font-weight: 800;
 }
 
+/* --- UPDATED FEEDBACK SECTION (THEME MATCHED) --- */
+.feedback-section {
+  padding: 80px 20px;
+  background: transparent;
+  /* Blends with global dark background */
+  display: flex;
+  justify-content: center;
+}
+
+.feedback-container {
+  background: var(--glass-bg);
+  /* Dark Grey Glass */
+  border: 1px solid var(--glass-border);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.feedback-container h2 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  color: var(--text-white);
+  text-align: center;
+  font-weight: 800;
+}
+
+.feedback-container h2 span {
+  color: var(--primary);
+  /* Vibrant Orange */
+}
+
+.feedback-container p {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 35px;
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--accent);
+  /* Yellow for visibility */
+  font-family: "Outfit", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  /* Subtle transparent dark */
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Interaction Focus - Matches Orange Glow */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--primary);
+  background: rgba(255, 102, 0, 0.05);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+}
+
+/* Dropdown Arrow Color Adjustment */
+.input-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+/* Submit Button Gradient - Matches Cart Button */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--glow);
+  /* Golden Yellow Glow */
+  color: #000;
+}
+/* --- DROPDOWN THEME MATCH --- */
+.input-group select {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.05); /* Dark background */
+  color: var(--text-white); /* White text */
+  cursor: pointer;
+  
+  /* Matches your Orange Arrow */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+/* Styling the options inside the dropdown list */
+.input-group select option {
+  background-color: #1a1a1a; /* Solid dark color for the list */
+  color: var(--text-white);
+  padding: 10px;
+}
+
+/* Focus state with Orange Border */
+.input-group select:focus {
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
 /* --- FOOTER --- */
 footer {
   margin-top: 80px;
@@ -381,10 +542,10 @@ footer .text-muted {
   cursor: pointer;
   font-family: "Plus Jakarta Sans", sans-serif;
   appearance: none;
-  
+
   /* UPDATED SVG for ORANGE ARROW */
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  
+
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px;

@@ -1,342 +1,495 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beverages Menu | Savi Dabba</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Beverages Menu | Savi Dabba</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css"> 
-</head>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<body>
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="home.html">SAVI <span>DABBA</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="fa-solid fa-bars" style="color: white;"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav align-items-center">
-            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Menu</a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="breakfast.html">Breakfast</a></li>
-                <li><a class="dropdown-item" href="lunch.html">Lunch</a></li>
-                <li><a class="dropdown-item" href="dinner.html">Dinner</a></li>
-                <li><a class="dropdown-item" href="desserts.html">Desserts</a></li>
-                <li><a class="dropdown-item" href="beverages.html">Beverages</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="about.html">Our Story</a></li>
-            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-              <a href="cart.html" class="btn-cart-nav">
-                <i class="fa-solid fa-bag-shopping me-2"></i> Cart <span id="cartCount" class="badge bg-black text-white ms-1 rounded-pill">0</span>
-              </a>
-            </li>
-          </ul>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">SAVI <span>DABBA</span></a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <span class="fa-solid fa-bars" style="color: white"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle active"
+                                href="#"
+                                id="navbarDropdownMenu"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul
+                                class="dropdown-menu dropdown-menu-dark"
+                                aria-labelledby="navbarDropdownMenu">
+                                <li>
+                                    <a class="dropdown-item" href="breakfast.html">Breakfast</a>
+                                </li>
+                                <li><a class="dropdown-item" href="lunch.html">Lunch</a></li>
+                                <li><a class="dropdown-item" href="dinner.html">Dinner</a></li>
+                                <li><a class="dropdown-item" href="desserts.html">Desserts</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="beverages.html">Beverages</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Our Story</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                            <a href="cart.html" class="btn-cart-nav">
+                                <i class="fa-solid fa-bag-shopping me-2"></i> Cart
+                                <span
+                                    id="cartCount"
+                                    class="badge bg-black text-white ms-1 rounded-pill"
+                                    >0</span
+                                >
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5 text-center">
+            <h1 class="display-4 fw-bold">
+                BEVERAGES <span style="color: var(--primary)">MENU</span>
+            </h1>
+            <p class="text-muted">Freshly pressed juices & filter coffee.</p>
+            <h4 class="mt-3">
+                Total Amount: ₹<span id="total" style="color: var(--primary)">0</span>
+            </h4>
         </div>
-      </div>
-    </nav>
 
-    <div class="container mt-5 text-center">
-        <h1 class="display-4 fw-bold">BEVERAGES <span style="color: var(--primary);">MENU</span></h1>
-        <p class="text-muted">Freshly pressed juices & filter coffee.</p>
-        <h4 class="mt-3">Total Amount: ₹<span id="total" style="color:var(--primary)">0</span></h4>
-    </div>
+        <section class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1596952954288-43d93b136829?q=80&w=600&auto=format&fit=crop"
+                                alt="Filter Coffee" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Filter Coffee</div>
+                            <p class="description">Strong South Indian brew.</p>
 
-    <section class="container py-5">
-        <div class="row g-4">
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1596952954288-43d93b136829?q=80&w=600&auto=format&fit=crop" alt="Filter Coffee">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Filter Coffee</div>
-                        <p class="description">Strong South Indian brew.</p>
-                        
-                        <select id="var-coffee" class="glass-select">
-                            <option value="30">Regular - ₹30</option>
-                            <option value="40">Large - ₹40</option>
-                        </select>
+                            <select id="var-coffee" class="glass-select">
+                                <option value="30">Regular - ₹30</option>
+                                <option value="40">Large - ₹40</option>
+                            </select>
 
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Filter Coffee', 'var-coffee')">Add</button>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Filter Coffee', 'var-coffee')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Filter Coffee', 'var-coffee')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Filter Coffee', 'var-coffee')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1613524666060-9df24a689d0c?q=80&w=600&auto=format&fit=crop"
+                                alt="Masala Tea" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Masala Tea</div>
+                            <p class="description">Spiced Indian Chai.</p>
+
+                            <select id="var-tea" class="glass-select">
+                                <option value="25">Regular - ₹25</option>
+                                <option value="35">Large - ₹35</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Masala Tea', 'var-tea')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Masala Tea', 'var-tea')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop"
+                                alt="Lime Soda" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Fresh Lime Soda</div>
+                            <p class="description">Sparkling lemon cooler.</p>
+
+                            <select id="var-limesoda" class="glass-select">
+                                <option value="49">Sweet - ₹49</option>
+                                <option value="49">Salted - ₹49</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Fresh Lime Soda', 'var-limesoda')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Fresh Lime Soda',
+                                                'var-limesoda',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600&auto=format&fit=crop"
+                                alt="Fruit Juice" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Fruit Juice</div>
+                            <p class="description">100% pure fruit extracts.</p>
+
+                            <select id="var-juice" class="glass-select">
+                                <option value="60">Watermelon - ₹60</option>
+                                <option value="70">Orange - ₹70</option>
+                                <option value="70">Mosambi - ₹70</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Fruit Juice', 'var-juice')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Fruit Juice', 'var-juice')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1626082929543-5bab0f006c42?q=80&w=600&auto=format&fit=crop"
+                                alt="Buttermilk" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Masala Buttermilk</div>
+                            <p class="description">Spiced yogurt drink.</p>
+
+                            <select id="var-buttermilk" class="glass-select">
+                                <option value="40">Glass - ₹40</option>
+                                <option value="80">Bottle (300ml) - ₹80</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Masala Buttermilk', 'var-buttermilk')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Masala Buttermilk',
+                                                'var-buttermilk',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1555523996-3c727038740c?q=80&w=600&auto=format&fit=crop"
+                                alt="Lassi" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Punjabi Lassi</div>
+                            <p class="description">Thick sweet yogurt drink.</p>
+
+                            <select id="var-lassi" class="glass-select">
+                                <option value="70">Sweet Lassi - ₹70</option>
+                                <option value="90">Mango Lassi - ₹90</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Punjabi Lassi', 'var-lassi')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Punjabi Lassi', 'var-lassi')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600&auto=format&fit=crop"
+                                alt="Cold Coffee" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Cold Coffee</div>
+                            <p class="description">Chilled coffee with cream.</p>
+
+                            <select id="var-coldcoffee" class="glass-select">
+                                <option value="80">Regular - ₹80</option>
+                                <option value="110">With Ice Cream - ₹110</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Cold Coffee', 'var-coldcoffee')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Cold Coffee',
+                                                'var-coldcoffee',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=600&auto=format&fit=crop"
+                                alt="Mojito" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Virgin Mojito</div>
+                            <p class="description">Mint & lemon refreshing cooler.</p>
+
+                            <select id="var-mojito" class="glass-select">
+                                <option value="90">Classic Mint - ₹90</option>
+                                <option value="110">Strawberry - ₹110</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Virgin Mojito', 'var-mojito')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Virgin Mojito', 'var-mojito')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1613524666060-9df24a689d0c?q=80&w=600&auto=format&fit=crop" alt="Masala Tea">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Masala Tea</div>
-                        <p class="description">Spiced Indian Chai.</p>
-                        
-                        <select id="var-tea" class="glass-select">
-                            <option value="25">Regular - ₹25</option>
-                            <option value="35">Large - ₹35</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Masala Tea', 'var-tea')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Masala Tea', 'var-tea')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop" alt="Lime Soda">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Fresh Lime Soda</div>
-                        <p class="description">Sparkling lemon cooler.</p>
-                        
-                        <select id="var-limesoda" class="glass-select">
-                            <option value="49">Sweet - ₹49</option>
-                            <option value="49">Salted - ₹49</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Fresh Lime Soda', 'var-limesoda')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Fresh Lime Soda', 'var-limesoda')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600&auto=format&fit=crop" alt="Fruit Juice">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Fruit Juice</div>
-                        <p class="description">100% pure fruit extracts.</p>
-                        
-                        <select id="var-juice" class="glass-select">
-                            <option value="60">Watermelon - ₹60</option>
-                            <option value="70">Orange - ₹70</option>
-                            <option value="70">Mosambi - ₹70</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Fruit Juice', 'var-juice')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Fruit Juice', 'var-juice')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1626082929543-5bab0f006c42?q=80&w=600&auto=format&fit=crop" alt="Buttermilk">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Masala Buttermilk</div>
-                        <p class="description">Spiced yogurt drink.</p>
-                        
-                        <select id="var-buttermilk" class="glass-select">
-                            <option value="40">Glass - ₹40</option>
-                            <option value="80">Bottle (300ml) - ₹80</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Masala Buttermilk', 'var-buttermilk')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Masala Buttermilk', 'var-buttermilk')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1555523996-3c727038740c?q=80&w=600&auto=format&fit=crop" alt="Lassi">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Punjabi Lassi</div>
-                        <p class="description">Thick sweet yogurt drink.</p>
-                        
-                        <select id="var-lassi" class="glass-select">
-                            <option value="70">Sweet Lassi - ₹70</option>
-                            <option value="90">Mango Lassi - ₹90</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Punjabi Lassi', 'var-lassi')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Punjabi Lassi', 'var-lassi')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600&auto=format&fit=crop" alt="Cold Coffee">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Cold Coffee</div>
-                        <p class="description">Chilled coffee with cream.</p>
-                        
-                        <select id="var-coldcoffee" class="glass-select">
-                            <option value="80">Regular - ₹80</option>
-                            <option value="110">With Ice Cream - ₹110</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Cold Coffee', 'var-coldcoffee')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Cold Coffee', 'var-coldcoffee')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=600&auto=format&fit=crop" alt="Mojito">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Virgin Mojito</div>
-                        <p class="description">Mint & lemon refreshing cooler.</p>
-                        
-                        <select id="var-mojito" class="glass-select">
-                            <option value="90">Classic Mint - ₹90</option>
-                            <option value="110">Strawberry - ₹110</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Virgin Mojito', 'var-mojito')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Virgin Mojito', 'var-mojito')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div id="customizer" class="customizer">
+            <h3 id="itemName"></h3>
+            <p class="text-muted mb-3">ADD ONS</p>
+            <div id="addonList"></div>
+            <br />
+            <button class="btn-outline-custom" onclick="closeCustomizer()">Close</button>
         </div>
-    </section>
 
-    <div id="customizer" class="customizer">
-        <h3 id="itemName"></h3>
-        <p class="text-muted mb-3">ADD ONS</p>
-        <div id="addonList"></div><br>
-        <button class="btn-outline-custom" onclick="closeCustomizer()">Close</button>
-    </div>
+        <footer>
+            <div class="container">
+                <h3 class="mb-4" style="color: white; font-weight: 800">
+                    SAVI <span style="color: var(--primary)">DABBA</span>
+                </h3>
 
-<footer>
-        <div class="container">
-            <h3 class="mb-4" style="color: white; font-weight: 800">
-                SAVI <span style="color: var(--primary)">DABBA</span>
-            </h3>
-            
-            <p class="text-muted mb-4">Made with ❤️ in Namma Bengaluru.</p>
-            
-            <div class="footer-social">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <p class="text-muted mb-4">Made with Love in Namma Bengaluru.</p>
+
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+
+                <div class="mt-5 pt-4 border-top border-secondary opacity-50">
+                    <small class="text-muted"
+                        >&copy; 2026 Savi Dabba Cloud Kitchens. All rights reserved.</small
+                    >
+
+                    <span class="mx-2 text-secondary">|</span>
+                    <a href="dashboard.html" class="text-decoration-none text-muted small"
+                        >Staff Login</a
+                    >
+                </div>
             </div>
-            
-            <div class="mt-5 pt-4 border-top border-secondary opacity-50">
-                <small class="text-muted">&copy; 2026 Savi Dabba Cloud Kitchens. All rights reserved.</small>
-                
-                <span class="mx-2 text-secondary">|</span>
-                <a href="dashboard.html" class="text-decoration-none text-muted small">Staff Login</a>
-            </div>
-        </div>
-    </footer>
+        </footer>
+        <script>
+            const addonsData = {
+                "Filter Coffee": [
+                    { name: "Strong", price: 0 },
+                    { name: "Less Sugar", price: 0 },
+                ],
+                "Masala Tea": [
+                    { name: "Ginger", price: 5 },
+                    { name: "Cardamom", price: 5 },
+                ],
+                "Fresh Lime Soda": [
+                    { name: "Extra Lemon", price: 10 },
+                    { name: "Mint Leaves", price: 10 },
+                ],
+                "Fruit Juice": [
+                    { name: "No Sugar", price: 0 },
+                    { name: "Extra Ice", price: 0 },
+                ],
+                "Masala Buttermilk": [
+                    { name: "Extra Spice", price: 5 },
+                    { name: "Ginger", price: 5 },
+                ],
+                "Punjabi Lassi": [
+                    { name: "Dry Fruits", price: 20 },
+                    { name: "Extra Malai", price: 15 },
+                ],
+                "Cold Coffee": [
+                    { name: "Choco Chips", price: 15 },
+                    { name: "Extra Cream", price: 20 },
+                ],
+                "Virgin Mojito": [
+                    { name: "Extra Mint", price: 10 },
+                    { name: "Ginger Ale Base", price: 30 },
+                ],
+            };
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    const addonsData = {
-        "Filter Coffee": [ { name: "Strong", price: 0 }, { name: "Less Sugar", price: 0 } ],
-        "Masala Tea": [ { name: "Ginger", price: 5 }, { name: "Cardamom", price: 5 } ],
-        "Fresh Lime Soda": [ { name: "Extra Lemon", price: 10 }, { name: "Mint Leaves", price: 10 } ],
-        "Fruit Juice": [ { name: "No Sugar", price: 0 }, { name: "Extra Ice", price: 0 } ],
-        "Masala Buttermilk": [ { name: "Extra Spice", price: 5 }, { name: "Ginger", price: 5 } ],
-        "Punjabi Lassi": [ { name: "Dry Fruits", price: 20 }, { name: "Extra Malai", price: 15 } ],
-        "Cold Coffee": [ { name: "Choco Chips", price: 15 }, { name: "Extra Cream", price: 20 } ],
-        "Virgin Mojito": [ { name: "Extra Mint", price: 10 }, { name: "Ginger Ale Base", price: 30 } ]
-    };
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const badge = document.getElementById("cartCount");
+                if (badge) badge.innerText = cart.length;
+            }
+            updateCartCount();
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const badge = document.getElementById("cartCount");
-        if (badge) badge.innerText = cart.length;
-    }
-    updateCartCount();
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+        <script src="cart.js"></script>
 
-    <script src="cart.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

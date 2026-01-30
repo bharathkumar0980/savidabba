@@ -1,285 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Dashboard | Savi Dabba</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css"> 
-    
-    <style>
-        /* DASHBOARD SPECIFIC STYLES */
-        body {
-            /* Ensure the background matches the main site */
-            background-color: var(--bg-dark);
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 40%);
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Employee Dashboard | Savi Dabba</title>
 
-        .dashboard-header {
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 20px;
-        }
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        .table-container {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        <link rel="stylesheet" href="style.css" />
 
-        .table {
-            margin-bottom: 0;
-            color: var(--text-white);
-        }
+        <style>
+            /* DASHBOARD SPECIFIC STYLES */
+            body {
+                background-color: var(--bg-dark);
+                background-image:
+                    radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 40%);
+                display: none; /* Hide body initially to prevent flicker */
+            }
 
-        .table thead th {
-            background-color: rgba(255, 102, 0, 0.1);
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--glass-border);
-            padding: 15px;
-            font-family: 'Outfit', sans-serif;
-        }
+            .dashboard-header {
+                margin-bottom: 30px;
+                border-bottom: 1px solid var(--glass-border);
+                padding-bottom: 20px;
+            }
 
-        .table tbody td {
-            vertical-align: middle;
-            border-bottom: 1px solid var(--glass-border);
-            padding: 15px;
-            font-size: 0.95rem;
-        }
+            .table-container {
+                background: rgba(20, 20, 20, 0.6);
+                backdrop-filter: blur(12px);
+                border: 1px solid var(--glass-border);
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
 
-        .table tbody tr:last-child td {
-            border-bottom: none;
-        }
+            .table {
+                margin-bottom: 0;
+                color: var(--text-white);
+            }
 
-        .table tbody tr:hover {
-            background-color: rgba(255, 255, 255, 0.03);
-        }
+            .table thead th {
+                background-color: rgba(255, 102, 0, 0.1);
+                color: var(--primary);
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+                border-bottom: 1px solid var(--glass-border);
+                padding: 15px;
+                font-family: "Outfit", sans-serif;
+            }
 
-        /* STATUS BADGES */
-        .status-badge {
-            padding: 6px 12px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+            .table tbody td {
+                vertical-align: middle;
+                border-bottom: 1px solid var(--glass-border);
+                padding: 15px;
+                font-size: 0.95rem;
+                color: #000000;
+            }
 
-        .status-pending {
-            background: rgba(255, 204, 0, 0.2);
-            color: #ffcc00;
-            border: 1px solid rgba(255, 204, 0, 0.3);
-            animation: pulse-yellow 2s infinite;
-        }
-        
-        .status-pending::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background-color: #ffcc00;
-            border-radius: 50%;
-        }
+            .table tbody tr:last-child td {
+                border-bottom: none;
+            }
 
-        .status-completed {
-            background: rgba(40, 167, 69, 0.2);
-            color: #2ecc71;
-            border: 1px solid rgba(40, 167, 69, 0.3);
-        }
-        
-        .status-completed::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background-color: #2ecc71;
-            border-radius: 50%;
-        }
+            .table tbody tr:hover {
+                background-color: rgba(255, 255, 255, 0.03);
+            }
 
-        @keyframes pulse-yellow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4); }
-            70% { box-shadow: 0 0 0 6px rgba(255, 204, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
-        }
+            /* STATUS BADGES */
+            .status-badge {
+                padding: 6px 12px;
+                border-radius: 30px;
+                font-size: 0.75rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
 
-        /* BUTTONS */
-        .btn-action {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            transition: 0.3s;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
+            .status-pending {
+                background: rgba(255, 204, 0, 0.2);
+                color: #ffcc00;
+                border: 1px solid rgba(255, 204, 0, 0.3);
+                animation: pulse-yellow 2s infinite;
+            }
 
-        .btn-action:hover {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
+            .status-pending::before {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background-color: #ffcc00;
+                border-radius: 50%;
+            }
 
-        .item-list {
-            font-size: 0.9rem;
-            color: #000000;
-            line-height: 1.4;
-        }
-        
-        .item-qty {
-            color: var(--primary);
-            font-weight: 700;
-            margin-right: 4px;
-        }
-        .text-muted{
-            color: #000000;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="home.html">SAVI <span>DABBA</span></a>
-        <div class="d-flex align-items-center gap-3">
-             <span class="badge bg-dark border border-secondary p-2 d-none d-md-block">
-                <i class="fa-solid fa-circle text-success me-1" style="font-size: 8px;"></i> System Online
-             </span>
-             <a href="home.html" class="btn btn-sm btn-outline-custom" style="width: auto;">Exit Panel</a>
-        </div>
-      </div>
-    </nav>
+            .status-completed {
+                background: rgba(40, 167, 69, 0.2);
+                color: #2ecc71;
+                border: 1px solid rgba(40, 167, 69, 0.3);
+            }
 
-    <div class="container mt-5">
-        <div class="dashboard-header d-flex justify-content-between align-items-end">
-            <div>
-                <h6 class="text-primary mb-1">REAL-TIME DATA</h6>
-                <h2 class="text-white fw-bold m-0">Order Management</h2>
+            .status-completed::before {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background-color: #2ecc71;
+                border-radius: 50%;
+            }
+
+            @keyframes pulse-yellow {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4);
+                }
+                70% {
+                    box-shadow: 0 0 0 6px rgba(255, 204, 0, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+                }
+            }
+
+            /* BUTTONS */
+            .btn-action {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                transition: 0.3s;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+
+            .btn-action:hover {
+                background: var(--primary);
+                transform: scale(1.1);
+            }
+
+            .item-list {
+                font-size: 0.9rem;
+                color: #000000;
+                line-height: 1.4;
+            }
+
+            .item-qty {
+                color: var(--primary);
+                font-weight: 700;
+                margin-right: 4px;
+            }
+            .text-muted {
+                color: #000000;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">SAVI <span>DABBA</span></a>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-dark border border-secondary p-2 d-none d-md-block">
+                        <i class="fa-solid fa-circle text-success me-1" style="font-size: 8px"></i>
+                        System Online
+                    </span>
+                    <a href="index.html" class="btn btn-sm btn-outline-custom" style="width: auto"
+                        >Exit Panel</a
+                    >
+                </div>
             </div>
-            <div class="text-end">
-                <p class="text-muted m-0 small">Live Updates Active</p>
-            </div>
-        </div>
+        </nav>
 
-        <div class="table-container p-0">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Received At</th>
-                            <th scope="col">Customer Details</th>
-                            <th scope="col" width="30%">Order Items</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Status</th>
-                            <th scope="col" class="text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ordersTable">
-                        </tbody>
-                </table>
-                <div id="loadingText" class="p-5 text-center">
-                    <div class="spinner-border text-primary mb-3" role="status"></div>
-                    <p class="text-muted m-0">Connecting to Savi Dabba Kitchen...</p>
+        <div class="container mt-5">
+            <div class="dashboard-header d-flex justify-content-between align-items-end">
+                <div>
+                    <h6 class="text-primary mb-1">REAL-TIME DATA</h6>
+                    <h2 class="text-white fw-bold m-0">Order Management</h2>
+                </div>
+                <div class="text-end">
+                    <p class="text-muted m-0 small">Live Updates Active</p>
+                </div>
+            </div>
+
+            <div class="table-container p-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Received At</th>
+                                <th scope="col">Customer Details</th>
+                                <th scope="col" width="30%">Order Items</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable"></tbody>
+                    </table>
+                    <div id="loadingText" class="p-5 text-center">
+                        <div class="spinner-border text-primary mb-3" role="status"></div>
+                        <p class="text-muted m-0">Connecting to Savi Dabba Kitchen...</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
-    <script>
-      // --- FIREBASE CONFIGURATION ---
-      const firebaseConfig = {
-        apiKey: "AIzaSyCz4TyYrpCTB3IYIebPQv2rW04t-pnNMlk",
-        authDomain: "savi-dabba.firebaseapp.com",
-        databaseURL: "https://savi-dabba-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "savi-dabba",
-        storageBucket: "savi-dabba.firebasestorage.app",
-        messagingSenderId: "210119671403",
-        appId: "1:210119671403:web:35c657450763247b3c3b2e",
-      };
+        <script>
+            // --- FIREBASE CONFIGURATION ---
+            const firebaseConfig = {
+                apiKey: "AIzaSyCz4TyYrpCTB3IYIebPQv2rW04t-pnNMlk",
+                authDomain: "savi-dabba.firebaseapp.com",
+                databaseURL: "https://savi-dabba-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "savi-dabba",
+                storageBucket: "savi-dabba.firebasestorage.app",
+                messagingSenderId: "210119671403",
+                appId: "1:210119671403:web:35c657450763247b3c3b2e",
+            };
 
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.database();
+            // Initialize Firebase
+            if (!firebase.apps.length) {
+                firebase.initializeApp(firebaseConfig);
+            }
 
-      // --- LOGIC ---
-      const table = document.getElementById("ordersTable");
-      const loading = document.getElementById("loadingText");
+            const db = firebase.database();
+            const auth = firebase.auth();
 
-      db.ref("orders").on("value", (snapshot) => {
-        if (!snapshot.exists()) {
-          loading.innerHTML = `<i class="fa-solid fa-mug-hot fs-1 mb-3"></i><p>No active orders right now.</p>`;
-          table.innerHTML = "";
-          return;
-        }
+            // --- SECURITY SHIELD ---
+            auth.onAuthStateChanged((user) => {
+                if (!user) {
+                    // No user logged in, kick to login page
+                    console.log("No user detected, redirecting...");
+                    window.location.href = "login.html";
+                } else if (user.email !== "admin@savidabba.com") {
+                    // User is not authorized, kick back to home
+                    console.log("Unauthorized user:", user.email);
+                    alert("Access Denied: Authorized Staff Only.");
+                    window.location.href = "index.html";
+                } else {
+                    // Authorized Admin! Start loading data
+                    console.log("Admin Verified:", user.email);
+                    document.body.style.display = "block"; // Show page now
+                    loadOrders();
+                }
+            });
 
-        loading.style.display = "none";
-        table.innerHTML = "";
+            // --- DASHBOARD LOGIC ---
+            function loadOrders() {
+                const table = document.getElementById("ordersTable");
+                const loading = document.getElementById("loadingText");
 
-        const orders = snapshot.val();
+                // Added error handling callback to catch permission issues
+                db.ref("orders").on(
+                    "value",
+                    (snapshot) => {
+                        loading.style.display = "none";
+                        table.innerHTML = "";
 
-        // Convert object to array and reverse to show newest first
-        const ordersArray = Object.keys(orders).map(key => ({ id: key, ...orders[key] })).reverse();
-
-        ordersArray.forEach((order) => {
-          // Format items list with better styling
-          const itemsList = order.items
-            .map((i) => `<div><span class="item-qty">${i.qty}x</span> ${i.name}</div>`)
-            .join("");
-
-          const badgeClass = order.status === "Completed" ? "status-completed" : "status-pending";
-          const badgeText = order.status === "Completed" ? "Ready" : "Preparing";
-
-          const row = `
-                <tr>
-                    <td>
-                        <div class="fw-bold text-white">${order.timestamp.split(',')[1]}</div>
-                        <small>${order.timestamp.split(',')[0]}</small>
-                    </td>
-                    <td>
-                        <div class="fw-bold text-white">${order.customerName}</div>
-                        <div class=" small" style="font-size: 0.75rem;">${order.customerEmail}</div>
-                    </td>
-                    <td>
-                        <div class="item-list">${itemsList}</div>
-                    </td>
-                    <td class="text-primary fw-bold">₹${order.total}</td>
-                    <td>
-                        <span class="status-badge ${badgeClass}">${badgeText}</span>
-                    </td>
-                    <td class="text-center">
-                        ${
-                          order.status !== "Completed"
-                            ? `<button class="btn-action" onclick="markComplete('${order.id}')" title="Mark as Ready">
-                                 <i class="fa-solid fa-check"></i>
-                               </button>`
-                            : `<div class="text-success"><i class="fa-solid fa-circle-check fs-5"></i></div>`
+                        if (!snapshot.exists()) {
+                            loading.innerHTML = `<i class="fa-solid fa-mug-hot fs-1 mb-3"></i><p>No active orders right now.</p>`;
+                            loading.style.display = "block"; // Show empty state
+                            return;
                         }
-                    </td>
-                </tr>
-            `;
-          table.innerHTML += row;
-        });
-      });
 
-      window.markComplete = function (orderId) {
-        db.ref("orders/" + orderId).update({ status: "Completed" });
-      };
-    </script>
-</body>
+                        const orders = snapshot.val();
+                        const ordersArray = Object.keys(orders)
+                            .map((key) => ({ id: key, ...orders[key] }))
+                            .reverse();
+
+                        ordersArray.forEach((order) => {
+                            // Safe check for items array
+                            const items = order.items || [];
+                            const itemsList = items
+                                .map(
+                                    (i) =>
+                                        `<div><span class="item-qty">${i.qty}x</span> ${i.name}</div>`,
+                                )
+                                .join("");
+
+                            const badgeClass =
+                                order.status === "Completed" ?
+                                    "status-completed"
+                                :   "status-pending";
+                            const badgeText = order.status === "Completed" ? "Ready" : "Preparing";
+
+                            const row = `
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-white">${order.timestamp ? order.timestamp.split(",")[1] : "Just now"}</div>
+                                <small>${order.timestamp ? order.timestamp.split(",")[0] : ""}</small>
+                            </td>
+                            <td>
+                                <div class="fw-bold text-white">${order.customerName}</div>
+                                <div class="small" style="font-size: 0.75rem;">${order.customerEmail}</div>
+                            </td>
+                            <td><div class="item-list">${itemsList}</div></td>
+                            <td class="text-primary fw-bold">₹${order.total}</td>
+                            <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+                            <td class="text-center">
+                                ${
+                                    order.status !== "Completed" ?
+                                        `<button class="btn btn-sm btn-success" onclick="markComplete('${order.id}')">
+                                        <i class="fa-solid fa-check"></i> Ready
+                                    </button>`
+                                    :   `<div class="text-success"><i class="fa-solid fa-circle-check fs-5"></i></div>`
+                                }
+                            </td>
+                        </tr>`;
+                            table.innerHTML += row;
+                        });
+                    },
+                    (error) => {
+                        // 2. Error Handler for Permission Denied
+                        console.error("Firebase Error:", error);
+                        loading.innerHTML = `<p class="text-danger fw-bold">Error: ${error.message}</p><small>Check your database rules.</small>`;
+                        loading.style.display = "block";
+                    },
+                );
+            }
+
+            window.markComplete = function (orderId) {
+                db.ref("orders/" + orderId)
+                    .update({ status: "Completed" })
+                    .catch((err) => alert("Error updating: " + err.message));
+            };
+        </script>
+    </body>
 </html>

@@ -1,441 +1,611 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Menu | Savi Dabba</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dinner Menu | Savi Dabba</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css"> 
-</head>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<body>
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="home.html">SAVI <span>DABBA</span></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="fa-solid fa-bars" style="color: white"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav align-items-center">
-            <li class="nav-item">
-              <a class="nav-link" href="home.html">Home</a>
-            </li>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle active"
-                href="#"
-                id="menuDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Menu
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark"
-                aria-labelledby="menuDropdown"
-              >
-                <li>
-                  <a class="dropdown-item" href="breakfast.html">Breakfast</a>
-                </li>
-                <li><a class="dropdown-item" href="lunch.html">Lunch</a></li>
-                <li><a class="dropdown-item" href="dinner.html">Dinner</a></li>
-                <li>
-                  <a class="dropdown-item" href="desserts.html">Desserts</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="beverages.html">Beverages</a>
-                </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">Our Story</a>
-            </li>
+    <body>
+        <nav class="navbar navbar-expand-lg sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">SAVI <span>DABBA</span></a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <span class="fa-solid fa-bars" style="color: white"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
-            </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle active"
+                                href="#"
+                                id="navbarDropdownMenu"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul
+                                class="dropdown-menu dropdown-menu-dark"
+                                aria-labelledby="navbarDropdownMenu">
+                                <li>
+                                    <a class="dropdown-item" href="breakfast.html">Breakfast</a>
+                                </li>
+                                <li><a class="dropdown-item" href="lunch.html">Lunch</a></li>
+                                <li><a class="dropdown-item" href="dinner.html">Dinner</a></li>
+                                <li><a class="dropdown-item" href="desserts.html">Desserts</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="beverages.html">Beverages</a>
+                                </li>
+                            </ul>
+                        </li>
 
-            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-              <a href="cart.html" class="btn-cart-nav">
-                <i class="fa-solid fa-bag-shopping me-2"></i>Cart
-                <span
-                  id="cartCount"
-                  class="badge bg-black text-white ms-1 rounded-pill"
-                  >0</span
-                >
-              </a>
-            </li>
-          </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Our Story</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                            <a href="cart.html" class="btn-cart-nav">
+                                <i class="fa-solid fa-bag-shopping me-2"></i>Cart
+                                <span
+                                    id="cartCount"
+                                    class="badge bg-black text-white ms-1 rounded-pill"
+                                    >0</span
+                                >
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5 text-center">
+            <h1 class="display-4 fw-bold">
+                DINNER <span style="color: var(--primary)">MENU</span>
+            </h1>
+            <p class="text-muted">Flavorful Biryanis & Rich Gravies.</p>
+            <h4 class="mt-3">
+                Total Amount: ₹<span id="total" style="color: var(--primary)">0</span>
+            </h4>
         </div>
-      </div>
-    </nav>
 
-    <div class="container mt-5 text-center">
-        <h1 class="display-4 fw-bold">DINNER <span style="color: var(--primary);">MENU</span></h1>
-        <p class="text-muted">Flavorful Biryanis & Rich Gravies.</p>
-        <h4 class="mt-3">Total Amount: ₹<span id="total" style="color:var(--primary)">0</span></h4>
-    </div>
+        <section class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop"
+                                alt="Chicken Biryani" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Chicken Biryani</div>
+                            <p class="description">Aromatic dum style biryani.</p>
 
-    <section class="container py-5">
-        <div class="row g-4">
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop" alt="Chicken Biryani">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Chicken Biryani</div>
-                        <p class="description">Aromatic dum style biryani.</p>
-                        
-                        <select id="var-cbiryani" class="glass-select">
-                            <option value="180">Half - ₹180</option>
-                            <option value="280">Full - ₹280</option>
-                            <option value="850">Family Pack - ₹850</option>
-                        </select>
+                            <select id="var-cbiryani" class="glass-select">
+                                <option value="180">Half - ₹180</option>
+                                <option value="280">Full - ₹280</option>
+                                <option value="850">Family Pack - ₹850</option>
+                            </select>
 
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Chicken Biryani', 'var-cbiryani')">Add</button>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Chicken Biryani', 'var-cbiryani')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Chicken Biryani',
+                                                'var-cbiryani',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Chicken Biryani', 'var-cbiryani')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600&auto=format&fit=crop"
+                                alt="Donne Biryani" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Donne Biryani</div>
+                            <p class="description">Nati style green herb biryani.</p>
+
+                            <select id="var-dbiryani" class="glass-select">
+                                <option value="160">Half - ₹160</option>
+                                <option value="240">Full - ₹240</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Donne Biryani', 'var-dbiryani')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Donne Biryani',
+                                                'var-dbiryani',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop"
+                                alt="Chapathi" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Chapathi Combo</div>
+                            <p class="description">Soft wheat roti with curry.</p>
+
+                            <select id="var-chapathi" class="glass-select">
+                                <option value="89">Veg Curry - ₹89</option>
+                                <option value="129">Chicken Curry - ₹129</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Chapathi Combo', 'var-chapathi')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Chapathi Combo',
+                                                'var-chapathi',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop"
+                                alt="Paneer Butter Masala" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Paneer Butter Masala</div>
+                            <p class="description">Rich creamy tomato gravy.</p>
+
+                            <select id="var-pbm" class="glass-select">
+                                <option value="120">Half - ₹120</option>
+                                <option value="190">Full - ₹190</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Paneer Butter Masala', 'var-pbm')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Paneer Butter Masala',
+                                                'var-pbm',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=600&auto=format&fit=crop"
+                                alt="Butter Chicken" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Butter Chicken</div>
+                            <p class="description">Classic creamy chicken gravy.</p>
+
+                            <select id="var-bchicken" class="glass-select">
+                                <option value="150">Half - ₹150</option>
+                                <option value="240">Full - ₹240</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Butter Chicken', 'var-bchicken')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Butter Chicken',
+                                                'var-bchicken',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=600&auto=format&fit=crop"
+                                alt="Shawarma" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Shawarma Roll</div>
+                            <p class="description">Grilled chicken in rumali roti.</p>
+
+                            <select id="var-shawarma" class="glass-select">
+                                <option value="69">Regular - ₹69</option>
+                                <option value="99">Special (Extra Meat) - ₹99</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Shawarma Roll', 'var-shawarma')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Shawarma Roll',
+                                                'var-shawarma',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=600&auto=format&fit=crop"
+                                alt="Chicken Ghee Roast" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Chicken Ghee Roast</div>
+                            <p class="description">Spicy Mangalorean dry roast.</p>
+
+                            <select id="var-gheeroast" class="glass-select">
+                                <option value="180">Half - ₹180</option>
+                                <option value="280">Full - ₹280</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Chicken Ghee Roast', 'var-gheeroast')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Chicken Ghee Roast',
+                                                'var-gheeroast',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=600&auto=format&fit=crop"
+                                alt="Kichidi" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Dal Kichidi</div>
+                            <p class="description">Comforting lentil rice.</p>
+
+                            <select id="var-kichidi" class="glass-select">
+                                <option value="79">Plain - ₹79</option>
+                                <option value="99">Tadka (Spicy) - ₹99</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Dal Kichidi', 'var-kichidi')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Dal Kichidi', 'var-kichidi')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1624359623233-a0e2815774a3?q=80&w=600&auto=format&fit=crop"
+                                alt="Chilli Chicken" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Chilli Chicken</div>
+                            <p class="description">Indo-chinese spicy starter.</p>
+
+                            <select id="var-chillichicken" class="glass-select">
+                                <option value="140">Dry - ₹140</option>
+                                <option value="160">Gravy - ₹160</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="
+                                            addVariantToCart('Chilli Chicken', 'var-chillichicken')
+                                        ">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant(
+                                                'Chilli Chicken',
+                                                'var-chillichicken',
+                                            )
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="glass-card">
+                        <div class="card-img-wrap">
+                            <img
+                                src="https://images.unsplash.com/photo-1625938146369-adc83368bda7?q=80&w=600&auto=format&fit=crop"
+                                alt="Gobi Manchurian" />
+                        </div>
+                        <div class="card-content">
+                            <div class="dish-title">Gobi Manchurian</div>
+                            <p class="description">Crispy cauliflower toss.</p>
+
+                            <select id="var-gobi" class="glass-select">
+                                <option value="110">Dry - ₹110</option>
+                                <option value="130">Gravy - ₹130</option>
+                            </select>
+
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button
+                                        class="btn-primary-custom"
+                                        onclick="addVariantToCart('Gobi Manchurian', 'var-gobi')">
+                                        Add
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button
+                                        class="btn-outline-custom"
+                                        onclick="
+                                            openCustomizerWithVariant('Gobi Manchurian', 'var-gobi')
+                                        ">
+                                        <i class="fa-solid fa-sliders"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600&auto=format&fit=crop" alt="Donne Biryani">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Donne Biryani</div>
-                        <p class="description">Nati style green herb biryani.</p>
-                        
-                        <select id="var-dbiryani" class="glass-select">
-                            <option value="160">Half - ₹160</option>
-                            <option value="240">Full - ₹240</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Donne Biryani', 'var-dbiryani')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Donne Biryani', 'var-dbiryani')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop" alt="Chapathi">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Chapathi Combo</div>
-                        <p class="description">Soft wheat roti with curry.</p>
-                        
-                        <select id="var-chapathi" class="glass-select">
-                            <option value="89">Veg Curry - ₹89</option>
-                            <option value="129">Chicken Curry - ₹129</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Chapathi Combo', 'var-chapathi')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Chapathi Combo', 'var-chapathi')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop" alt="Paneer Butter Masala">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Paneer Butter Masala</div>
-                        <p class="description">Rich creamy tomato gravy.</p>
-                        
-                        <select id="var-pbm" class="glass-select">
-                            <option value="120">Half - ₹120</option>
-                            <option value="190">Full - ₹190</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Paneer Butter Masala', 'var-pbm')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Paneer Butter Masala', 'var-pbm')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=600&auto=format&fit=crop" alt="Butter Chicken">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Butter Chicken</div>
-                        <p class="description">Classic creamy chicken gravy.</p>
-                        
-                        <select id="var-bchicken" class="glass-select">
-                            <option value="150">Half - ₹150</option>
-                            <option value="240">Full - ₹240</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Butter Chicken', 'var-bchicken')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Butter Chicken', 'var-bchicken')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=600&auto=format&fit=crop" alt="Shawarma">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Shawarma Roll</div>
-                        <p class="description">Grilled chicken in rumali roti.</p>
-                        
-                        <select id="var-shawarma" class="glass-select">
-                            <option value="69">Regular - ₹69</option>
-                            <option value="99">Special (Extra Meat) - ₹99</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Shawarma Roll', 'var-shawarma')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Shawarma Roll', 'var-shawarma')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=600&auto=format&fit=crop" alt="Chicken Ghee Roast">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Chicken Ghee Roast</div>
-                        <p class="description">Spicy Mangalorean dry roast.</p>
-                        
-                        <select id="var-gheeroast" class="glass-select">
-                            <option value="180">Half - ₹180</option>
-                            <option value="280">Full - ₹280</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Chicken Ghee Roast', 'var-gheeroast')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Chicken Ghee Roast', 'var-gheeroast')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=600&auto=format&fit=crop" alt="Kichidi">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Dal Kichidi</div>
-                        <p class="description">Comforting lentil rice.</p>
-                        
-                        <select id="var-kichidi" class="glass-select">
-                            <option value="79">Plain - ₹79</option>
-                            <option value="99">Tadka (Spicy) - ₹99</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Dal Kichidi', 'var-kichidi')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Dal Kichidi', 'var-kichidi')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1624359623233-a0e2815774a3?q=80&w=600&auto=format&fit=crop" alt="Chilli Chicken">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Chilli Chicken</div>
-                        <p class="description">Indo-chinese spicy starter.</p>
-                        
-                        <select id="var-chillichicken" class="glass-select">
-                            <option value="140">Dry - ₹140</option>
-                            <option value="160">Gravy - ₹160</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Chilli Chicken', 'var-chillichicken')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Chilli Chicken', 'var-chillichicken')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="glass-card">
-                    <div class="card-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1625938146369-adc83368bda7?q=80&w=600&auto=format&fit=crop" alt="Gobi Manchurian">
-                    </div>
-                    <div class="card-content">
-                        <div class="dish-title">Gobi Manchurian</div>
-                        <p class="description">Crispy cauliflower toss.</p>
-                        
-                        <select id="var-gobi" class="glass-select">
-                            <option value="110">Dry - ₹110</option>
-                            <option value="130">Gravy - ₹130</option>
-                        </select>
-
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <button class="btn-primary-custom" onclick="addVariantToCart('Gobi Manchurian', 'var-gobi')">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Gobi Manchurian', 'var-gobi')">
-                                    <i class="fa-solid fa-sliders"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div id="customizer" class="customizer">
+            <h3 id="itemName"></h3>
+            <p class="text-muted mb-3">ADD ONS</p>
+            <div id="addonList"></div>
+            <br />
+            <button class="btn-outline-custom" onclick="closeCustomizer()">Close</button>
         </div>
-    </section>
 
-    <div id="customizer" class="customizer">
-        <h3 id="itemName"></h3>
-        <p class="text-muted mb-3">ADD ONS</p>
-        <div id="addonList"></div><br>
-        <button class="btn-outline-custom" onclick="closeCustomizer()">Close</button>
-    </div>
+        <footer>
+            <div class="container">
+                <h3 class="mb-4" style="color: white; font-weight: 800">
+                    SAVI <span style="color: var(--primary)">DABBA</span>
+                </h3>
 
-<footer>
-        <div class="container">
-            <h3 class="mb-4" style="color: white; font-weight: 800">
-                SAVI <span style="color: var(--primary)">DABBA</span>
-            </h3>
-            
-            <p class="text-muted mb-4">Made with ❤️ in Namma Bengaluru.</p>
-            
-            <div class="footer-social">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <p class="text-muted mb-4">Made with Love in Namma Bengaluru.</p>
+
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+
+                <div class="mt-5 pt-4 border-top border-secondary opacity-50">
+                    <small class="text-muted"
+                        >&copy; 2026 Savi Dabba Cloud Kitchens. All rights reserved.</small
+                    >
+
+                    <span class="mx-2 text-secondary">|</span>
+                    <a href="dashboard.html" class="text-decoration-none text-muted small"
+                        >Staff Login</a
+                    >
+                </div>
             </div>
-            
-            <div class="mt-5 pt-4 border-top border-secondary opacity-50">
-                <small class="text-muted">&copy; 2026 Savi Dabba Cloud Kitchens. All rights reserved.</small>
-                
-                <span class="mx-2 text-secondary">|</span>
-                <a href="dashboard.html" class="text-decoration-none text-muted small">Staff Login</a>
-            </div>
-        </div>
-    </footer>
+        </footer>
+        <script>
+            const addonsData = {
+                "Chicken Biryani": [
+                    { name: "Extra Piece", price: 50 },
+                    { name: "Boiled Egg", price: 15 },
+                    { name: "Raita", price: 10 },
+                ],
+                "Donne Biryani": [
+                    { name: "Extra Piece", price: 45 },
+                    { name: "Half Boiled Egg", price: 15 },
+                ],
+                "Chapathi Combo": [
+                    { name: "Extra Chapathi", price: 15 },
+                    { name: "Extra Gravy", price: 25 },
+                ],
+                "Paneer Butter Masala": [
+                    { name: "Extra Paneer", price: 30 },
+                    { name: "Butter Naan", price: 40 },
+                ],
+                "Butter Chicken": [
+                    { name: "Extra Chicken", price: 40 },
+                    { name: "Butter Naan", price: 40 },
+                ],
+                "Shawarma Roll": [
+                    { name: "Extra Cheese", price: 20 },
+                    { name: "Spicy Dip", price: 10 },
+                ],
+                "Chicken Ghee Roast": [
+                    { name: "Neer Dosa (2pc)", price: 30 },
+                    { name: "Extra Ghee", price: 20 },
+                ],
+                "Dal Kichidi": [
+                    { name: "Ghee", price: 15 },
+                    { name: "Papad & Pickle", price: 10 },
+                ],
+                "Chilli Chicken": [
+                    { name: "Extra Sauce", price: 10 },
+                    { name: "Fried Egg", price: 15 },
+                ],
+                "Gobi Manchurian": [
+                    { name: "Extra Sauce", price: 10 },
+                    { name: "Extra Onion", price: 5 },
+                ],
+            };
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    const addonsData = {
-        "Chicken Biryani": [ { name: "Extra Piece", price: 50 }, { name: "Boiled Egg", price: 15 }, { name: "Raita", price: 10 } ],
-        "Donne Biryani": [ { name: "Extra Piece", price: 45 }, { name: "Half Boiled Egg", price: 15 } ],
-        "Chapathi Combo": [ { name: "Extra Chapathi", price: 15 }, { name: "Extra Gravy", price: 25 } ],
-        "Paneer Butter Masala": [ { name: "Extra Paneer", price: 30 }, { name: "Butter Naan", price: 40 } ],
-        "Butter Chicken": [ { name: "Extra Chicken", price: 40 }, { name: "Butter Naan", price: 40 } ],
-        "Shawarma Roll": [ { name: "Extra Cheese", price: 20 }, { name: "Spicy Dip", price: 10 } ],
-        "Chicken Ghee Roast": [ { name: "Neer Dosa (2pc)", price: 30 }, { name: "Extra Ghee", price: 20 } ],
-        "Dal Kichidi": [ { name: "Ghee", price: 15 }, { name: "Papad & Pickle", price: 10 } ],
-        "Chilli Chicken": [ { name: "Extra Sauce", price: 10 }, { name: "Fried Egg", price: 15 } ],
-        "Gobi Manchurian": [ { name: "Extra Sauce", price: 10 }, { name: "Extra Onion", price: 5 } ]
-    };
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const badge = document.getElementById("cartCount");
+                if (badge) badge.innerText = cart.length;
+            }
+            updateCartCount();
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const badge = document.getElementById("cartCount");
-        if (badge) badge.innerText = cart.length;
-    }
-    updateCartCount();
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+        <script src="cart.js"></script>
 
-    <script src="cart.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
