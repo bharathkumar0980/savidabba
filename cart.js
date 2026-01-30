@@ -354,6 +354,39 @@ function openCustomizerWithVariant(baseName, selectId) {
     const details = getVariantDetails(selectId, baseName);
     if (details) openCustomizer(details.fullName, details.price, baseName);
 }
+/*
+  FEEDBACK FORM HANDLING
+*/
+document.addEventListener("DOMContentLoaded", () => {
+    const feedbackForm = document.getElementById("feedbackForm");
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener("submit", (e) => {
+            e.preventDefault(); // Stop page from reloading
+
+            // 1. Gather Data
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                category: document.getElementById("category").value,
+                message: document.getElementById("message").value,
+                timestamp: new Date().toLocaleString(), // Readable time
+            };
+
+            // 2. Send to Firebase (New 'feedbacks' collection)
+            db.ref("feedbacks")
+                .push(formData)
+                .then(() => {
+                    alert("Thanks for your feedback, " + formData.name + "!");
+                    feedbackForm.reset(); // Clear the form
+                })
+                .catch((error) => {
+                    console.error("Feedback Error:", error);
+                    alert("Error sending feedback: " + error.message);
+                });
+        });
+    }
+});
 
 /*
    INITIALIZE
