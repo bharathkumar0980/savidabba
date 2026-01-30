@@ -1,0 +1,401 @@
+/* style.css - ORANGE & YELLOW FIRE THEME */
+
+:root {
+  /* BRAND COLORS: Orange, Yellow, Black */
+  --primary: #ff6600;       /* Vibrant Orange */
+  --primary-dark: #e64d00;  /* Deep Orange for Hover */
+  --accent: #ffcc00;        /* Yellow for Highlights */
+  --glow: rgba(255, 204, 0, 0.6); /* Golden Yellow Glow */
+
+  /* DARK THEME PALETTE */
+  --bg-dark: #000000;       /* Pure Black */
+  --glass-bg: rgba(20, 20, 20, 0.7); /* Dark Grey Glass */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-white: #ffffff;
+  --text-muted: #a7a7a7;
+}
+
+body {
+  background-color: var(--bg-dark);
+  /* Global Gradient: Hints of Orange and Yellow in background */
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 40%);
+  color: var(--text-white);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  background: rgba(0, 0, 0, 0.85); /* Darker Navbar */
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: white !important;
+  text-transform: uppercase;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+  text-shadow: 0 0 15px var(--glow);
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary) !important;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+}
+
+/* --- BUTTONS --- */
+.btn-cart-nav {
+  /* Gradient from Yellow to Orange */
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: #000;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+  border: none;
+}
+
+.btn-cart-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px var(--glow);
+  color: #000;
+}
+
+.btn-primary-custom {
+  background: var(--primary);
+  color: white; /* White text on Orange looks better */
+  font-weight: 700;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn-primary-custom:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--glow);
+  color: white;
+}
+
+.btn-outline-custom {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: 0.3s;
+  width: 100%;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-outline-custom:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(255, 102, 0, 0.1);
+}
+
+/* --- HERO SECTION (HOME CAROUSEL) --- */
+.hero-section {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+.hero-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.banner-item {
+  width: 600px;
+  height: 380px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+  transition: 0.4s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.banner-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.banner-item:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(255, 102, 0, 0.3); /* Orange Shadow */
+  transform: scale(1.02);
+}
+
+.banner-item:hover img {
+  transform: scale(1.1);
+}
+
+.banner-item h3 {
+  color: white;
+  margin: 0;
+}
+
+.banner-tag {
+  background: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .banner-item { width: 300px; height: 220px; }
+  .hero-section::before, .hero-section::after { width: 50px; }
+}
+
+/* --- GLASS CARDS (MENU ITEMS) --- */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(40, 30, 20, 0.8); /* Warm dark bg on hover */
+  border-color: var(--primary);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card-img-wrap {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.glass-card:hover img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.card-desc,
+.description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.price-tag {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* --- CUSTOMIZER MODAL --- */
+.customizer {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background: #0a0a0a;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 50px rgba(255, 102, 0, 0.2);
+  z-index: 2000;
+  padding: 30px;
+  border-radius: 24px;
+  color: white;
+}
+
+.customizer h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+/* --- FOOTER --- */
+footer {
+  margin-top: 80px;
+  border-top: 1px solid var(--glass-border);
+  background: #000000;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.footer-social a {
+  display: inline-flex;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 0 10px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--glow);
+}
+
+footer .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Dropdown Variant Style */
+.glass-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  appearance: none;
+  
+  /* UPDATED SVG for ORANGE ARROW */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ff6600%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.glass-select:focus {
+  border-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.glass-select option {
+  background-color: #000;
+  color: white;
+}

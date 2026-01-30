@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Menu | Savi Dabba</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="home.html">SAVI <span>DABBA</span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="fa-solid fa-bars" style="color: white"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="home.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="menuDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menu
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="menuDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="breakfast.html">Breakfast</a>
+                </li>
+                <li><a class="dropdown-item" href="lunch.html">Lunch</a></li>
+                <li><a class="dropdown-item" href="dinner.html">Dinner</a></li>
+                <li>
+                  <a class="dropdown-item" href="desserts.html">Desserts</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="beverages.html">Beverages</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Our Story</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+
+            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+              <a href="cart.html" class="btn-cart-nav">
+                <i class="fa-solid fa-bag-shopping me-2"></i>Cart
+                <span
+                  id="cartCount"
+                  class="badge bg-black text-white ms-1 rounded-pill"
+                  >0</span
+                >
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 text-center">
+        <h1 class="display-4 fw-bold">BREAKFAST <span style="color: var(--primary);">MENU</span></h1>
+        <p class="text-muted">Start your day with our crispy and steaming favorites.</p>
+        <h4 class="mt-3">Total Amount: ₹<span id="total" style="color:var(--primary)">0</span></h4>
+    </div>
+
+    <section class="container py-5">
+        <div class="row g-4">
+            
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="idly.jpg" alt="Idly"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Idly</div>
+                        <p class="description">Soft steamed rice cakes.</p>
+                        
+                        <select id="var-idly" class="glass-select">
+                            <option value="49">Plate (2pc) - ₹49</option>
+                            <option value="89">Family (4pc) - ₹89</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Idly', 'var-idly')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Idly', 'var-idly')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="dosa.jpg" alt="Dosa"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Dosa</div>
+                        <p class="description">Crispy fermented rice crepe.</p>
+                        
+                        <select id="var-dosa" class="glass-select">
+                            <option value="59">Plain - ₹59</option>
+                            <option value="79">Masala - ₹79</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Dosa', 'var-dosa')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Dosa', 'var-dosa')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="poori.jpg" alt="Poori"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Poori</div>
+                        <p class="description">Deep fried fluffy bread.</p>
+                        
+                        <select id="var-poori" class="glass-select">
+                            <option value="69">Plate (2pc) - ₹69</option>
+                            <option value="99">Extra (3pc) - ₹99</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Poori', 'var-poori')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Poori', 'var-poori')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="pongal.jpg" alt="Pongal"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Pongal</div>
+                        <p class="description">Rice & dal porridge.</p>
+                        
+                        <select id="var-pongal" class="glass-select">
+                            <option value="59">Regular - ₹59</option>
+                            <option value="89">Special Ghee - ₹89</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Pongal', 'var-pongal')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Pongal', 'var-pongal')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="upma.jpg" alt="Upma"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Upma</div>
+                        <p class="description">Semolina with veggies.</p>
+                        
+                        <select id="var-upma" class="glass-select">
+                            <option value="49">Regular - ₹49</option>
+                            <option value="79">Kesari Combo - ₹79</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Upma', 'var-upma')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Upma', 'var-upma')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="poha.jpg" alt="Poha"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Poha</div>
+                        <p class="description">Flattened rice with peanuts.</p>
+                        
+                        <select id="var-poha" class="glass-select">
+                            <option value="39">Regular - ₹39</option>
+                            <option value="59">Masala Poha - ₹59</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Poha', 'var-poha')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Poha', 'var-poha')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="paratha.jpg" alt="Paratha"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Paratha</div>
+                        <p class="description">Stuffed layered flatbread.</p>
+                        
+                        <select id="var-paratha" class="glass-select">
+                            <option value="49">Aloo (Potato) - ₹49</option>
+                            <option value="69">Paneer - ₹69</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Paratha', 'var-paratha')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Paratha', 'var-paratha')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="glass-card">
+                    <div class="card-img-wrap"><img src="varietyrice.jpg" alt="Variety Rice"></div>
+                    <div class="card-content">
+                        <div class="dish-title">Variety Rice</div>
+                        <p class="description">Lemon or Curd rice options.</p>
+                        
+                        <select id="var-varietyrice" class="glass-select">
+                            <option value="59">Regular - ₹59</option>
+                            <option value="89">Large - ₹89</option>
+                        </select>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn-primary-custom" onclick="addVariantToCart('Variety Rice', 'var-varietyrice')">Add</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-outline-custom" onclick="openCustomizerWithVariant('Variety Rice', 'var-varietyrice')">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="customizer" class="customizer">
+        <h3 id="itemName"></h3>
+        <p class="text-muted mb-3">ADD ONS</p>
+        <div id="addonList"></div><br>
+        <button class="btn-outline-custom" onclick="closeCustomizer()">Close</button>
+    </div>
+
+<footer>
+        <div class="container">
+            <h3 class="mb-4" style="color: white; font-weight: 800">
+                SAVI <span style="color: var(--primary)">DABBA</span>
+            </h3>
+            
+            <p class="text-muted mb-4">Made with ❤️ in Namma Bengaluru.</p>
+            
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            
+            <div class="mt-5 pt-4 border-top border-secondary opacity-50">
+                <small class="text-muted">&copy; 2026 Savi Dabba Cloud Kitchens. All rights reserved.</small>
+                
+                <span class="mx-2 text-secondary">|</span>
+                <a href="dashboard.html" class="text-decoration-none text-muted small">Staff Login</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const addonsData = {
+        Idly: [ { name: "Extra Sambar", price: 10 }, { name: "Ghee Dip", price: 15 } ],
+        Dosa: [ { name: "Extra Masala", price: 20}, { name: "Ghee Roast", price: 25 }, { name: "Cheese", price: 30} ],
+        Poori: [ { name: "Extra Poori", price: 10 }, { name: "Extra Saagu", price: 10} ],
+        Pongal: [ { name: "Ghee", price: 25 }, { name: "Cashew Topping", price: 20} ],
+        Upma: [ { name: "Extra Chutney", price: 5 }, { name: "Ghee", price: 10} ],
+        Poha: [ { name: "Extra Peanuts", price: 10 }, { name: "Bhujia Topping", price: 15} ],
+        Paratha: [ { name: "Butter Cube", price: 10 }, { name: "Pickle & Curd", price: 15} ],
+        "Variety Rice": [ { name: "Fried Papad", price: 10 }, { name: "Pickle", price: 5 } ]
+    };
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const badge = document.getElementById("cartCount");
+        if (badge) badge.innerText = cart.length;
+    }
+    updateCartCount();
+    </script>
+    
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+    <script src="cart.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
