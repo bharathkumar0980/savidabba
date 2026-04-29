@@ -143,6 +143,7 @@ h5 {
   position: relative;
   padding-top: 40px;
   padding-bottom: 40px;
+  overflow:hidden;
 }
 
 .hero-section::before,
