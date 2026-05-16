@@ -17,67 +17,7 @@
 
         <link rel="stylesheet" href="style.css" />
 
-        <style>
-            /* Specific Styles for Cart Table */
-            .table {
-                --bs-table-bg: transparent;
-                --bs-table-color: var(--text-white);
-                border-color: var(--glass-border);
-            }
-            .table th {
-                font-family: "Outfit", sans-serif;
-                color: var(--primary);
-                font-weight: 700;
-                text-transform: uppercase;
-                border-bottom: 1px solid var(--primary);
-                padding-bottom: 15px;
-            }
-            .table td {
-                vertical-align: middle;
-                padding: 20px 0;
-                border-bottom: 1px solid var(--glass-border);
-            }
 
-            /* Quantity Controls */
-            .qty-btn {
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid var(--glass-border);
-                color: white;
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                transition: 0.3s;
-                cursor: pointer;
-            }
-            .qty-btn:hover {
-                background: var(--primary);
-                color: black;
-                border-color: var(--primary);
-            }
-            .qty-input {
-                width: 40px;
-                background: transparent;
-                border: none;
-                color: white;
-                text-align: center;
-                font-weight: 700;
-            }
-
-            /* Trash Icon */
-            .btn-trash {
-                color: #ff4d4d;
-                background: transparent;
-                border: none;
-                transition: 0.3s;
-            }
-            .btn-trash:hover {
-                color: #ff0000;
-                transform: scale(1.2);
-            }
-        </style>
     </head>
 
     <body>
@@ -150,7 +90,7 @@
                 <div class="col-lg-8">
                     <div class="glass-card p-4">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table cart-table">
                                 <thead>
                                     <tr>
                                         <th scope="col" width="40%">Item</th>
