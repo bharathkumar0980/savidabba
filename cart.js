@@ -71,25 +71,28 @@ function handleAuth(event, type) {
             .then((userCredential) => {
                 // 2. Save the user's name to their profile
                 userCredential.user.updateProfile({ displayName: name }).then(() => {
-                    alert(`Welcome to the family, ${name}!`);
-                    window.location.href = "index.html";
+                    showToast(`Welcome to the family, ${name}!`, "success");
+                    setTimeout(() => window.location.href = "index.html", 1500);
                 });
             })
             .catch((error) => {
-                alert("Error: " + error.message);
+                showToast("Error: " + error.message, "error");
             });
     } else {
         // Login existing user
         auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
-                if (email === "admin@savidabba.com") {
-                    window.location.href = "dashboard.html"; // Send Admin to Dashboard
-                } else {
-                    window.location.href = "index.html"; // Send Customers to Home
-                }
+                showToast("Login successful!", "success");
+                setTimeout(() => {
+                    if (email === "admin@savidabba.com") {
+                        window.location.href = "dashboard.html"; // Send Admin to Dashboard
+                    } else {
+                        window.location.href = "index.html"; // Send Customers to Home
+                    }
+                }, 1000);
             })
             .catch((error) => {
-                alert("Login Failed: " + error.message);
+                showToast("Login Failed: " + error.message, "error");
             });
     }
 }
@@ -99,8 +102,8 @@ function handleAuth(event, type) {
  */
 function logout() {
     auth.signOut().then(() => {
-        alert("Logged out successfully.");
-        window.location.href = "index.html";
+        showToast("Logged out successfully.", "success");
+        setTimeout(() => window.location.href = "index.html", 1500);
     });
 }
 
@@ -109,21 +112,50 @@ function logout() {
 */
 
 function updateNavbar() {
-    const authNavItem = document.querySelector('a[href="login.html"]')?.parentElement;
+    let authNavItem = document.getElementById('auth-nav-item');
+    
+    // If not found by ID, try finding it by the href and add the ID
+    if (!authNavItem) {
+        const loginLink = document.querySelector('a[href="login.html"]');
+        if (loginLink) {
+            authNavItem = loginLink.parentElement;
+            authNavItem.id = 'auth-nav-item';
+        }
+    }
 
-    // Only update if the element exists AND we have a logged-in user
-    if (authNavItem && currentUser) {
+    if (!authNavItem) return;
+
+    if (currentUser) {
+        authNavItem.classList.add('dropdown', 'user-dropdown-container');
         authNavItem.innerHTML = `
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-primary fw-bold" href="#" data-bs-toggle="dropdown">
-                    <i class="fa-solid fa-circle-user me-1"></i> Hi, ${currentUser.name}
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="cart.html">My Orders</a></li>
-                    <li><hr class="dropdown-divider border-secondary"></li>
-                    <li><a class="dropdown-item text-danger" href="#" onclick="logout()">Logout</a></li>
-                </ul>
-            </div>`;
+            <a class="nav-link dropdown-toggle user-profile-link" href="#" data-bs-toggle="dropdown">
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="status-indicator online" title="Online"></span>
+                </div>
+                <span class="user-name">Hi, ${currentUser.name}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark custom-dropdown dropdown-menu-end">
+                <li class="dropdown-header">
+                    <small class="text-muted">Signed in as</small><br>
+                    <strong class="text-white">${currentUser.email}</strong>
+                </li>
+                <li><hr class="dropdown-divider border-secondary"></li>
+                <li>
+                    <a class="dropdown-item" href="cart.html">
+                        <i class="fa-solid fa-basket-shopping me-2 text-primary"></i> My Orders
+                    </a>
+                </li>
+                <li><hr class="dropdown-divider border-secondary"></li>
+                <li>
+                    <a class="dropdown-item text-danger" href="#" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+                    </a>
+                </li>
+            </ul>`;
+    } else {
+        authNavItem.classList.remove('dropdown', 'user-dropdown-container');
+        authNavItem.innerHTML = `<a class="nav-link" href="login.html">Login</a>`;
     }
 }
 
@@ -131,6 +163,41 @@ function refreshUI() {
     updateCartCount();
     updateNavbar();
     if (typeof renderCart === "function") renderCart(); // Update table only if on cart page
+}
+
+/* 
+  TOAST NOTIFICATIONS
+*/
+function showToast(message, type = 'success') {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `custom-toast toast-${type}`;
+    
+    let icon = '<i class="fa-solid fa-circle-check"></i>';
+    if (type === 'error') icon = '<i class="fa-solid fa-circle-exclamation"></i>';
+    if (type === 'info') icon = '<i class="fa-solid fa-circle-info"></i>';
+
+    toast.innerHTML = `
+        <div class="toast-icon">${icon}</div>
+        <div class="toast-message">${message}</div>
+    `;
+
+    container.appendChild(toast);
+
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 400); // match CSS transition duration
+    }, 3000);
 }
 
 /* 
@@ -146,6 +213,7 @@ function addToCart(name, price) {
     }
     saveCart();
     refreshUI();
+    showToast(`${name} added to cart!`, "success");
 }
 
 function saveCart() {
@@ -292,20 +360,22 @@ function changeQty(index, change) {
 }
 
 function removeItem(index) {
+    const removedItemName = cart[index].name;
     cart.splice(index, 1);
     saveCart();
     refreshUI();
+    showToast(`${removedItemName} removed from cart.`, "info");
 }
 
 function checkout() {
     if (cart.length === 0) {
-        alert("Your cart is empty!");
+        showToast("Your cart is empty!", "error");
         return;
     }
 
     if (!currentUser) {
-        alert("Please login to place your order.");
-        window.location.href = "login.html";
+        showToast("Please login to place your order.", "error");
+        setTimeout(() => window.location.href = "login.html", 1500);
         return;
     }
 
@@ -323,13 +393,13 @@ function checkout() {
     db.ref("orders")
         .push(orderData)
         .then(() => {
-            alert(`Order Received! We are preparing it, ${currentUser.name}.`);
+            showToast(`Order Received! We are preparing it, ${currentUser.name}.`, "success");
             cart = [];
             saveCart();
             refreshUI();
         })
         .catch((error) => {
-            alert("Order failed: " + error.message);
+            showToast("Order failed: " + error.message, "error");
         });
 }
 
@@ -377,12 +447,12 @@ document.addEventListener("DOMContentLoaded", () => {
             db.ref("feedbacks")
                 .push(formData)
                 .then(() => {
-                    alert("Thanks for your feedback, " + formData.name + "!");
+                    showToast("Thanks for your feedback, " + formData.name + "!", "success");
                     feedbackForm.reset(); // Clear the form
                 })
                 .catch((error) => {
                     console.error("Feedback Error:", error);
-                    alert("Error sending feedback: " + error.message);
+                    showToast("Error sending feedback: " + error.message, "error");
                 });
         });
     }

@@ -102,10 +102,26 @@
                 border-radius: 50%;
             }
 
-            .status-completed {
+            .status-ready {
                 background: rgba(40, 167, 69, 0.2);
                 color: #2ecc71;
                 border: 1px solid rgba(40, 167, 69, 0.3);
+                animation: pulse-green 2s infinite;
+            }
+
+            .status-ready::before {
+                content: "";
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background-color: #2ecc71;
+                border-radius: 50%;
+            }
+
+            .status-completed {
+                background: rgba(108, 117, 125, 0.2);
+                color: #adb5bd;
+                border: 1px solid rgba(108, 117, 125, 0.3);
             }
 
             .status-completed::before {
@@ -113,8 +129,14 @@
                 display: inline-block;
                 width: 6px;
                 height: 6px;
-                background-color: #2ecc71;
+                background-color: #adb5bd;
                 border-radius: 50%;
+            }
+
+            @keyframes pulse-green {
+                0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+                70% { box-shadow: 0 0 0 6px rgba(40, 167, 69, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
             }
 
             @keyframes pulse-yellow {
@@ -212,8 +234,33 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mt-4 mb-5">
+                <button class="btn btn-outline-secondary w-100 mb-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#completedOrdersCollapse" aria-expanded="false" aria-controls="completedOrdersCollapse">
+                    View Previous / Completed Orders <i class="fa-solid fa-chevron-down ms-2"></i>
+                </button>
+                <div class="collapse" id="completedOrdersCollapse">
+                    <div class="table-container p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Received At</th>
+                                        <th scope="col">Customer Details</th>
+                                        <th scope="col" width="30%">Order Items</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="completedOrdersTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
@@ -260,6 +307,7 @@
             // --- DASHBOARD LOGIC ---
             function loadOrders() {
                 const table = document.getElementById("ordersTable");
+                const completedTable = document.getElementById("completedOrdersTable");
                 const loading = document.getElementById("loadingText");
 
                 // Added error handling callback to catch permission issues
@@ -268,6 +316,7 @@
                     (snapshot) => {
                         loading.style.display = "none";
                         table.innerHTML = "";
+                        if (completedTable) completedTable.innerHTML = "";
 
                         if (!snapshot.exists()) {
                             loading.innerHTML = `<i class="fa-solid fa-mug-hot fs-1 mb-3"></i><p>No active orders right now.</p>`;
@@ -290,37 +339,62 @@
                                 )
                                 .join("");
 
-                            const badgeClass =
-                                order.status === "Completed" ?
-                                    "status-completed"
-                                :   "status-pending";
-                            const badgeText = order.status === "Completed" ? "Ready" : "Preparing";
+                            if (order.status === "Completed") {
+                                // Add to completed table
+                                const row = `
+                                <tr>
+                                    <td>
+                                        <div class="fw-bold">${order.timestamp ? order.timestamp.split(",")[1] : "Just now"}</div>
+                                        <small>${order.timestamp ? order.timestamp.split(",")[0] : ""}</small>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">${order.customerName}</div>
+                                        <div class="small" style="font-size: 0.75rem;">${order.customerEmail}</div>
+                                    </td>
+                                    <td><div class="item-list">${itemsList}</div></td>
+                                    <td class="text-primary fw-bold">₹${order.total}</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>`;
+                                if (completedTable) completedTable.innerHTML += row;
+                            } else {
+                                // Add to active table (Pending or Ready)
+                                const isReady = order.status === "Ready";
+                                const badgeClass = isReady ? "status-ready" : "status-pending";
+                                const badgeText = isReady ? "Ready" : "Preparing";
 
-                            const row = `
-                        <tr>
-                            <td>
-                                <div class="fw-bold">${order.timestamp ? order.timestamp.split(",")[1] : "Just now"}</div>
-                                <small>${order.timestamp ? order.timestamp.split(",")[0] : ""}</small>
-                            </td>
-                            <td>
-                                <div class="fw-bold">${order.customerName}</div>
-                                <div class="small" style="font-size: 0.75rem;">${order.customerEmail}</div>
-                            </td>
-                            <td><div class="item-list">${itemsList}</div></td>
-                            <td class="text-primary fw-bold">₹${order.total}</td>
-                            <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
-                            <td class="text-center">
-                                ${
-                                    order.status !== "Completed" ?
-                                        `<button class="btn btn-sm btn-success" onclick="markComplete('${order.id}')">
-                                        <i class="fa-solid fa-check"></i> Ready
-                                    </button>`
-                                    :   `<div class="text-success"><i class="fa-solid fa-circle-check fs-5"></i></div>`
-                                }
-                            </td>
-                        </tr>`;
-                            table.innerHTML += row;
+                                const actionBtn = isReady ? 
+                                    `<button class="btn btn-sm btn-info text-dark fw-bold w-100" onclick="updateOrderStatus('${order.id}', 'Completed')">
+                                        <i class="fa-solid fa-handshake"></i> Picked Up
+                                    </button>` :
+                                    `<button class="btn btn-sm btn-success w-100" onclick="updateOrderStatus('${order.id}', 'Ready')">
+                                        <i class="fa-solid fa-check"></i> Mark Ready
+                                    </button>`;
+
+                                const row = `
+                                <tr>
+                                    <td>
+                                        <div class="fw-bold">${order.timestamp ? order.timestamp.split(",")[1] : "Just now"}</div>
+                                        <small>${order.timestamp ? order.timestamp.split(",")[0] : ""}</small>
+                                    </td>
+                                    <td>
+                                        <div class="fw-bold">${order.customerName}</div>
+                                        <div class="small" style="font-size: 0.75rem;">${order.customerEmail}</div>
+                                    </td>
+                                    <td><div class="item-list">${itemsList}</div></td>
+                                    <td class="text-primary fw-bold">₹${order.total}</td>
+                                    <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+                                    <td class="text-center">
+                                        ${actionBtn}
+                                    </td>
+                                </tr>`;
+                                table.innerHTML += row;
+                            }
                         });
+                        
+                        // Show empty state if no active orders but there are completed ones
+                        if (table.innerHTML === "") {
+                            table.innerHTML = `<tr><td colspan="6" class="text-center py-4"><i class="fa-solid fa-check-double text-success mb-2 fs-3"></i><p class="text-muted m-0">All active orders are fulfilled!</p></td></tr>`;
+                        }
                     },
                     (error) => {
                         // 2. Error Handler for Permission Denied
@@ -331,9 +405,9 @@
                 );
             }
 
-            window.markComplete = function (orderId) {
+            window.updateOrderStatus = function (orderId, newStatus) {
                 db.ref("orders/" + orderId)
-                    .update({ status: "Completed" })
+                    .update({ status: newStatus })
                     .catch((err) => alert("Error updating: " + err.message));
             };
         </script>
